@@ -6,7 +6,7 @@
 <br>
 <br>
 <%= f.label :category %>
-<%= f.text_field :category %>
+<%= f.select :category, options_for_select(["Race", "Obstacle Course", "Triathlon", "Other"]), include_blank: true %>
 <br>
 <br>
 <%= f.label :description %>
