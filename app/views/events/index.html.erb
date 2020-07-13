@@ -1,8 +1,8 @@
 <h1>My Events</h1>
 
 <div>
-<li><% @events.all do |event| %>
-Title: <%= link_to event.title, event_path(@event) %>
+<li><% @events.each do |event| %>
+Title: <%= link_to event.title, event_path(event) %>
 Category: <%= event.category %>
 Description: <%= event.description %>
 Length: <%= event.length %></li>

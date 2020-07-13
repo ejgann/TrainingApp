@@ -1,7 +1,7 @@
 <h1>All Workouts</h1>
 
 <div>
-<li><% @events.all do |event| %>
+<li><% @workouts.all do |workout| %>
 Name: <%= link_to workout.name, workout_path(@workout)) %>
 Category: <%= workout.category %>
 Duration: <%= workout.duration %>
