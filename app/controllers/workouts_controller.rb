@@ -1,5 +1,5 @@
 class WorkoutsController < ApplicationController
-
+    
     def index
         @workouts = Workout.all
     end
@@ -9,9 +9,9 @@ class WorkoutsController < ApplicationController
     end
 
     def create
-        @workout = current_user.workouts.build(workout_params)
+        @workout = current_user.created_workouts.build(workout_params)
         if @workout.save
-            redirect_to workouts_path
+            redirect_to workout_path(@workout)
         else
             render :new
         end

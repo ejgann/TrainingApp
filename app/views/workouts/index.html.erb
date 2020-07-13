@@ -1,11 +1,11 @@
 <h1>All Workouts</h1>
 
 <div>
-<li><% @workouts.all do |workout| %>
-Name: <%= link_to workout.name, workout_path(@workout)) %>
+<% @workouts.each do |workout| %>
+<li>Name: <%= link_to workout.name, workout_path(workout) %>
 Category: <%= workout.category %>
 Duration: <%= workout.duration %>
-Intensity: <%= workout.intensity %></li>
+Intensity: <%= workout.intensity %></li><br>
 <% end %>
 </div>
 

@@ -1,1 +1,8 @@
 <h1><%= @workout.name %></h1>
+
+<%= @workout.category %><br>
+<%= @workout.duration %> minutes<br>
+<%= @workout.intensity %> (1=easy, 5=difficult)
+<br>
+<br>
+<%= link_to 'Return to All Workouts', workouts_path %>
