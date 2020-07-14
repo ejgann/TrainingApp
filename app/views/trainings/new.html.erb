@@ -1,0 +1,16 @@
+<h1>Record a New Training</h1>
+
+<%= form_for @training do |f| %>
+<br>
+<%= f.label :date %>
+<%=f.date_field :date %>
+<br>
+<%= f.label :notes %>
+<%= f.text_area :notes %>
+
+<%= f.label :event_id %>
+<%= f.collection_select :event_id, %>
+
+<%= f.submit('Add') %>
+
+<% end %>

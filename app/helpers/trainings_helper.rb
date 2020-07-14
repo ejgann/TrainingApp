@@ -1,2 +1,2 @@
-module TrainingSessionsHelper
+module TrainingsHelper
 end

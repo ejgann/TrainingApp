@@ -11,10 +11,11 @@
 
   <body>
     <div>
-      <% if logged_in? %> 
+      <% if logged_in? %>
+
       <%= link_to "Add an Event", new_event_path %>    |    
       <%= link_to "My Events", events_path %>    |    
-      <%= link_to "Add a Workout", new_workout_path %>    |    
+      <%= link_to "Record a Workout", new_workout_path %>    |    
       <%= link_to "All Workouts", workouts_path %>    |    
       <%= link_to "Logout", logout_path, method: 'delete' %>    |    
      <% else %>
