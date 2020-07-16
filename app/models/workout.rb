@@ -1,5 +1,5 @@
 class Workout < ApplicationRecord
   belongs_to :user
-  has_many :training_sessions
-  has_many :events, through: :training_sessions
+  has_many :trainings
+  has_many :events, through: :trainings
 end

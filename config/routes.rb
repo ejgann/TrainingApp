@@ -8,9 +8,13 @@ Rails.application.routes.draw do
 
   delete '/logout', to: 'sessions#destroy'
   
-  resources :training_sessions
-  resources :workouts
-  resources :events
+  resources :trainings
+  resources :workouts do 
+    resources :trainings, shallow: true
+    end
+  resources :events do 
+    resources :trainings, shallow: true
+    end
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,10 @@
+<h1>My Recorded Trainings</h1>
+
+<div>
+    <ul>
+    <li><% @trainings.each do |training| %>
+    <%= training.date %>
+    <%= training.notes %></li><br>
+    <% end %>
+    </ul>
+</div>

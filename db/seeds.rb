@@ -21,6 +21,6 @@ murph = Workout.new(name: "Murph", category: "circuit", duration: 60, intensity:
 short_run = Workout.new(name: "Short Run", category: "run", duration: 30, intensity: 3, user_id: 2)
 long_run = Workout.new(name: "Long Run", category: "run", duration: 45, intensity: 4, user_id: 3)
 
-# training_sessions
-ts1 = TrainingSession.new(date: 7/11/20, notes: "Difficult to sustain", event_id: 1, workout_id: 1)
-ts2 = TrainingSession.new(date: 7/12/20, notes: "Did well", event_id: 2, workout_id: 2)
+# trainings
+ts1 = Training.new(date: 7/11/20, notes: "Difficult to sustain", event_id: 1, workout_id: 1)
+ts2 = Training.new(date: 7/12/20, notes: "Did well", event_id: 2, workout_id: 2)
