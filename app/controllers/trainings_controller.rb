@@ -6,6 +6,9 @@ class TrainingsController < ApplicationController
     
     def new
         @training = Training.new
+        @training.build_workout
+        # this allows for the nested workout form in the new training view to have a workout instance to which it can be associated...without this, the nested workout portion disappears
+        # Also used since this is a belongs_to relationship
     end
 
     def create
@@ -29,7 +32,7 @@ class TrainingsController < ApplicationController
     private
 
     def training_params
-        params.require(:training).permit(:date, :notes, :event_id, :workout_id)
+        params.require(:training).permit(:date, :notes, :event_id, :workout_id, workout_attributes:[:name, :category, :duration, :intensity])
     end
 
 end
