@@ -1,33 +1,38 @@
 class TrainingsController < ApplicationController
     
     def index
-        @trainings = Training.all
+        if  params[:workout_id] && @workout = Workout.find_by_id(params[:workout_id])
+            @trainings = @workout.trainings
+        elsif params[:event_id] && @event = Event.find_by_id(params[:event_id])
+            @trainings = @event.trainings    
+        else
+            @trainings = Training.all
+        end
     end
     
     def new
-        @training = Training.new
-        @training.build_workout
+        if params[:workout_id] && @workout = Workout.find_by_id(params[:workout_id])
+            @training = @workout.trainings.build
+        else
+            @training = Training.new
+            @training.build_workout
         # this allows for the nested workout form in the new training view to have a workout instance to which it can be associated...without this, the nested workout portion disappears
         # Also used since this is a belongs_to relationship
+        end
     end
 
     def create
         @training = Training.new(training_params)
         if @training.save
-            redirect_to trainings_path 
+            redirect_to training_path(@training) 
         else
             render :new
         end
     end
 
-    # def create
-    #     @training = current_user.trainings.build(training_params)
-    #     if @training.save
-    #         redirect_to trainings_path
-    #     else
-    #         render :new
-    #     end
-    # end
+    def show
+        @training = Training.find(params[:id])
+    end
 
     private
 
