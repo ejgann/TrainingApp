@@ -22,7 +22,12 @@ class TrainingsController < ApplicationController
     end
 
     def create
-        @training = Training.new(training_params)
+        if params[:workout_id] && @workout = Workout.find_by_id(params[:workkout_id])
+            @training = @workout.trainings.build            
+        else
+            @training = Training.new(training_params)
+        end
+        
         if @training.save
             redirect_to training_path(@training) 
         else
