@@ -2,10 +2,10 @@
 
 <div>
 <% current_user.events.each do |event| %>
-<li>Title: <%= link_to event.title, event_path(event) %>
-Category: <%= event.category %>
-Description: <%= event.description %>
-Length: <%= event.length %></li>
+<li><strong>Title:</strong> <%= link_to event.title, event_path(event) %>
+<strong>Category:</strong> <%= event.category %>
+<strong>Description:</strong> <%= event.description %>
+<strong>Length:</strong> <%= event.length %> miles </li>
 <br>
 <% end %>
 </div>

@@ -2,10 +2,10 @@
 
 <div>
 <% @workouts.each do |workout| %>
-<li>Name: <%= link_to workout.name, workout_path(workout) %>
-Category: <%= workout.category %>
-Duration: <%= workout.duration %>
-Intensity: <%= workout.intensity %></li><br>
+<li><strong>Name:</strong> <%= link_to workout.name, workout_path(workout) %>
+<strong>Category:</strong> <%= workout.category %>
+<strong>Duration:</strong> <%= workout.duration %>
+<strong>Intensity:</strong> <%= workout.intensity %></li><br>
 <% end %>
 </div>
 

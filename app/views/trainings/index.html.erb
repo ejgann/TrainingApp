@@ -2,9 +2,10 @@
 
 <div>
     <ul>
-    <li><% @trainings.each do |training| %>
-    <%= training.date %>
-    <%= training.notes %></li><br>
+    <% @trainings.each do |training| %>
+    <li><strong>Date:</strong> <%= training.date %>
+    <strong>Notes:</strong> <%= training.notes %>
+    <strong>Associated Workout, if any:</strong> <%= training.workout.name %></li>
     <% end %>
     </ul>
 </div>

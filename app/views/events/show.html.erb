@@ -1,8 +1,8 @@
 <h1><%= @event.title%></h1>
 
-<%= @event.category %><br>
-<%= @event.description %><br>
-<%= @event.length %>
+<strong>Category:</strong> <%= @event.category %><br>
+<strong>Description:</strong> <%= @event.description %><br>
+<strong>Event Length:</strong> <%= @event.length %> miles
 <br>
 <br>
 <%= link_to 'Return to My Events', events_path %>
