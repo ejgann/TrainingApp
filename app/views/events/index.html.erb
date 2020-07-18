@@ -1,7 +1,7 @@
 <h1>My Events</h1>
 
 <div>
-<% @events.each do |event| %>
+<% current_user.events.each do |event| %>
 <li>Title: <%= link_to event.title, event_path(event) %>
 Category: <%= event.category %>
 Description: <%= event.description %>

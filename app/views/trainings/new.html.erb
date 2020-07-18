@@ -12,7 +12,7 @@
 <%= f.collection_select :event_id, current_user.events, :id, :title %>
 <br>
 <%= f.label :workout_id, "Select a Workout" %>
-<%= f.collection_select :workout_id, Workout.all, :id, :name %>
+<%= f.collection_select :workout_id, Workout.all, :id, :name, include_blank: true %>
 
 <br></br>
 
@@ -21,21 +21,22 @@
 <%= f.fields_for :workout do |w| %>
     <%= w.label :name %>
     <%= w.text_field :name %>
-<br>
+    <br>
     <%= w.label :category %>
     <%= w.select :category, options_for_select(["Circuit", "Run", "Cross Fit", "Bike", "Swim", "Other"]), include_blank: true %>
-<br>
+    <br>
     <%= w.label :duration %>
     <%= w.text_field :duration %> In minutes
-<br>
+    <br>
     <%= w.label :intensity %>
     <%= w.text_field :intensity %> On a scale of 1 to 5 (5 = most difficult)
 
-<%= w.hidden_field :user_id, value: current_user.id %>
+    <%= w.hidden_field :user_id, value: current_user.id %>
+
     <% end %>
 
 <br></br>
 
-<%= f.submit('Add') %>
+<%= f.submit('Add') %>   <%= link_to 'Cancel', trainings_path %>
 
 <% end %>

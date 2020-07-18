@@ -22,14 +22,14 @@ class TrainingsController < ApplicationController
     end
 
     def create
-        if params[:workout_id] && @workout = Workout.find_by_id(params[:workkout_id])
-            @training = @workout.trainings.build            
-        else
+        if params[:workout_id] && @workout = Workout.find_by_id(params[:workout_id])
+            @training = @workout.trainings
+        elsif
             @training = Training.new(training_params)
         end
         
         if @training.save
-            redirect_to training_path(@training) 
+            redirect_to trainings_path
         else
             render :new
         end
@@ -42,7 +42,8 @@ class TrainingsController < ApplicationController
     private
 
     def training_params
-        params.require(:training).permit(:date, :notes, :event_id, :workout_id, workout_attributes:[:name, :category, :duration, :intensity])
+        params.require(:training).permit(:date, :notes, :event_id, :workout_id, workout_attributes:[:name, :category, :duration, :intensity, :user_id])
+        # included :user_id because the model folders don't have access to Application_Controller, where current_user is defined. So have to include the user in the parameters
     end
 
 end
