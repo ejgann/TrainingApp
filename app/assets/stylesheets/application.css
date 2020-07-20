@@ -14,10 +14,21 @@
  *= require_self
  */
 
+
 body {
     margin: 42px;
     font-family: monospace;
     background-color: lightgray;
 }
 
- /* <link rel="prefetch" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.4ccc2ba08c360cad557fd79f7fdaa34f.css"> */
+.card {
+    background-color: powderblue;
+    border: 1px solid;
+    border-color: darkslategray;
+    padding: 1rem;
+    margin: 2rem;
+}
+
+.card h3 {
+    text-align: center;
+}
