@@ -1,6 +1,34 @@
-<h1>Start Training!</h1>
+<h1>Start training!</h1>
 
 <% if !logged_in? %>
 <%= link_to 'Signup', signup_path %>     |     
 <%= link_to 'Login', login_path %>
+
+<% else %>
+<div class="wrapper">
+<div class="card" style="width: 10rem;">
+  <div class="card-body">
+    <h3 class="card-title">Events</h3>
+    <p class="card-text">Add an event for which you'd like to start training!</p>
+    <%= link_to 'Add an Event', new_event_path %>   |   <%= link_to 'My Events', events_path %>
+  </div>
+</div>
+
+<div class="card" style="width: 10rem;">
+  <div class="card-body">
+    <h3 class="card-title">Workouts</h3>
+    <p class="card-text">Record a workout or get inspiration from other users.</p>
+    <%= link_to 'Record a Workout', new_workout_path %>   |   <%= link_to 'All Workouts', workouts_path %>
+  </div>
+</div>
+
+<div class="card" style="width: 10rem;">
+  <div class="card-body">
+    <h3 class="card-title">Trainings</h3>
+    <p class="card-text">Record a training to keep track of your progress.</p>
+    <%= link_to 'Record a Training', new_training_path %>   |   <%= link_to 'My Trainings', workouts_path %>
+  </div>
+</div>
+
+</div>
 <% end %>
