@@ -2,9 +2,12 @@ class TrainingsController < ApplicationController
     
     def index
         if  params[:workout_id] && @workout = Workout.find_by_id(params[:workout_id])
+            # if workout_id is nested via params[:workout_id]
+            # and if it can be found in the database
             @trainings = @workout.trainings
-        elsif params[:event_id] && @event = Event.find_by_id(params[:event_id])
-            @trainings = @event.trainings    
+            # access only the trainings associated with that specific workout
+        # elsif params[:event_id] && @event = Event.find_by_id(params[:event_id])
+        #     @trainings = @event.trainings    
         else
             @trainings = Training.all
         end
