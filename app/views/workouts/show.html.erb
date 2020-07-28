@@ -1,8 +1,8 @@
 <h1><%= @workout.name %></h1>
 
-<%= @workout.category %><br>
-<%= @workout.duration %> minutes<br>
-<%= @workout.intensity %> (1=easy, 5=difficult)
+<strong>Category:</strong> <%= @workout.category %><br>
+<strong>Duration:</strong> <%= @workout.duration %> minutes<br>
+<strong>Intensity:</strong> <%= @workout.intensity %> (1=easy, 5=difficult)
 <br>
 <br>
 <h3>Number of Times You've Recorded this Workout in a Training: <%= @workout.trainings.count %></h3>

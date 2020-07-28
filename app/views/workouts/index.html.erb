@@ -8,7 +8,12 @@
 <li><strong>Name:</strong> <%= link_to workout.name, workout_path(workout) %>
 <strong>Category:</strong> <%= workout.category %>
 <strong>Duration:</strong> <%= workout.duration %>
-<strong>Intensity:</strong> <%= workout.intensity %></li><br>
+<strong>Intensity:</strong> <%= workout.intensity %>
+<strong>Added By:</strong> <%= workout.user.username %>
+<%= link_to 'Trainings List', workout_trainings_path(workout) %>
+<%= link_to 'Record a Training', new_workout_training_path(workout) %>
+</li>
+
 <% end %>
 </div>
 

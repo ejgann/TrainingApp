@@ -8,10 +8,11 @@
 <%= f.label :notes %>
 <%= f.text_area :notes %>
 <br>
-<%= f.label :event_id %>
+<%= f.label :event_id, "Event for Which You're Training" %>
 <%= f.collection_select :event_id, current_user.events, :id, :title %>
 <br>
-<%= f.label :workout_id, "Select a Workout" %>
+<% if !params[:workout_id] %>
+<%= f.label :workout_id, "Select a Pre-existing Workout" %>
 <%= f.collection_select :workout_id, Workout.all, :id, :name, include_blank: true %>
 
 <br></br>
