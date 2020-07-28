@@ -24,8 +24,8 @@ class TrainingsController < ApplicationController
 
     def create
         if params[:workout_id] && @workout = Workout.find_by_id(params[:workout_id])
-            @training = @workout.trainings
-        elsif
+            @training = @workout.trainings.build(training_params)
+        else
             @training = Training.new(training_params)
         end
         
