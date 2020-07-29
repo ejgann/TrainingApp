@@ -1,9 +1,9 @@
-<% if @training.errors.any? %>
+<% if object.errors.any? %>
     <div id="error_explanation">
-        <h2><%= pluralize(@training.errors.count, "error") %> Prohibited this training from being saved:</h2>
+        <h2><%= pluralize(object.errors.count, "error") %> prohibited this training from being saved:</h2>
 
         <ul>
-        <% @training.errors.full_messages.each do |m| %>
+        <% object.errors.full_messages.each do |m| %>
         <li><%= m </li>
         </ul>
         </div>
