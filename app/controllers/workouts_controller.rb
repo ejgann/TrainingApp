@@ -1,7 +1,8 @@
 class WorkoutsController < ApplicationController
     
     def index
-        @workouts = Workout.all
+        @workouts = Workout.most_popular
+        # replaced .all with workout scope method .most_popular
     end
 
     def new

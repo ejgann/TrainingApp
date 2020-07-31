@@ -17,7 +17,7 @@
 
     <% if @workout %>
         <%= f.hidden_field :workout_id %>
-        <p>Training recorded for the <strong><%= @workout.name %></strong> workout </p>
+        <p><strong>Associated Workout:</strong> <%= @workout.name %></p>
     <% else %>
         <%= f.label :workout_id, "Select a Pre-existing Workout" %>
         <%= f.collection_select :workout_id, Workout.all, :id, :name, include_blank: true %>

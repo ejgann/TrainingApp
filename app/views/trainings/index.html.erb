@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-    <% @trainings.each do |training| %>
+    <% current_user.trainings.each do |training| %>
       <tr>
         <td><li><%= training.date %></td>
         <td><%= training.notes %>
@@ -19,3 +19,7 @@
       </tr>
   </tbody>
 </table>
+
+<br></br>
+
+<%= link_to 'Record a Training', new_training_path %>
