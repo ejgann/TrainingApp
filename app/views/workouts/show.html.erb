@@ -5,7 +5,6 @@
 <strong>Intensity:</strong> <%= @workout.intensity %> (1=easy, 5=difficult)
 <br>
 <br>
-<h3>Number of Times You've Recorded this Workout in a Training: <%= @workout.trainings.count %></h3>
-<br>
-<br>
+<strong>Number of Times You've Done this Workout: </strong><%= @workout.trainings.count %>
+<br></br>
 <%= link_to 'Return to All Workouts', workouts_path %>
