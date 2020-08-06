@@ -40,6 +40,25 @@ class TrainingsController < ApplicationController
         @training = Training.find(params[:id])
     end
 
+    def edit
+        @training = Training.find_by(id: params[:id])
+    end
+
+    def update
+        @training = Training.find_by(id: params[:id])
+        if @training.update(training_params)
+            redirect_to @training
+          else
+            render 'edit'
+          end
+    end
+
+    def destroy
+        @training = Training.find_by(id: params[:id])
+        @training.destroy
+        redirect_to trainings_path
+    end
+
     private
 
     def training_params

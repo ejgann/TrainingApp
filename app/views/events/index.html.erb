@@ -14,7 +14,7 @@
 
     <% current_user.events.each do |event| %>
         <tr>
-            <td><%= link_to event.title, event_path(event) %></td>
+            <td><%= event.title  %></td>
             <td><%= event.category %></td>
             <td><%= event.description %></td>
             <td><%= event.length %></td>
@@ -32,7 +32,6 @@
         <p>You have no upcoming events. </p>
     <% end %>
     
-
 <br></br>
 
 <%= link_to 'Add a New Event', new_event_path %>
