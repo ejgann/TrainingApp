@@ -14,13 +14,11 @@
     <% current_user.trainings.each do |training| %>
       <tr>
         <td><%= training.date.strftime("%b %e, %Y") %></td>
-        <td><%= training.notes %>
-        <% end %></td>
+        <td><%= training.notes %></td>
+        <td><%= training.workout.name %></td>
         <td><%= link_to 'Details', training_path(training) %></td>
-      <td><%= link_to 'Edit', edit_training_path(training) %></td>
-      <td><%= link_to 'Delete', training_path(training),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', training_path(training), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
       </tr>
   </tbody>
 </table>

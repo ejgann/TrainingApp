@@ -1,0 +1,15 @@
+<h1>Edit Info for this Training</h1>
+
+<%= form_for(@training) do |f| %>
+<%= f.label :date %>
+<%= f.date_field :date %>
+<br></br>
+<%= f.label :notes %>
+<%= f.text_area :notes %>
+<br></br>
+<%= f.submit('Ok') %>     |     <%= link_to 'Cancel', trainings_path %>
+<% end %>
+<br></br>
+<%= link_to 'Delete this Training', training_path(@training),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>

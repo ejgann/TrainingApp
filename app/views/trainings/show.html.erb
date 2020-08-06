@@ -1,1 +1,7 @@
-<%= @training.workout.name %>
+<h1>Training Details</h1>
+
+<h3>Training Date: </h3><%= @training.date.strftime("%b %e, %Y") %>
+<h3>Associated Workout: </h3><%= @training.workout.name %>
+<h3>Notes: </h3><%= @training.notes %>
+<br></br>
+<%= link_to 'All Trainings', trainings_path %>
