@@ -22,6 +22,25 @@ class WorkoutsController < ApplicationController
         @workout = Workout.find_by(id: params[:id])
     end
 
+    def edit
+        @workout = Workout.find_by(id: params[:id])
+    end
+
+    def update
+        @workout = Workout.find_by(id: params[:id])
+        if @workout.update(workout_params)
+            redirect_to @workout
+          else
+            render 'edit'
+          end
+    end
+
+    def destroy
+        @workout = Workout.find_by(id: params[:id])
+        @workout.destroy
+        redirect_to workouts_path
+    end
+
     private
 
     def workout_params

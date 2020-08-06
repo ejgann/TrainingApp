@@ -3,19 +3,32 @@
 
 <br></br>
 
-<div>
-<% @workouts.each do |workout| %>
-<li><strong>Name:</strong> <%= link_to workout.name, workout_path(workout) %>
-<strong>Category:</strong> <%= workout.category %>
-<strong>Duration:</strong> <%= workout.duration %>
-<strong>Intensity:</strong> <%= workout.intensity %>
-<strong>Added By:</strong> <%= workout.user.username %>
-<%= link_to 'Trainings List', workout_trainings_path(workout) %>
-<%= link_to 'Record a Training', new_workout_training_path(workout) %>
-</li>
+<table>
+    <thead>
+        <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Duration</th>
+        <th>Intensity</th>
+        <th colspan="3"></th>
+        </tr>
+    </thead>
 
-<% end %>
-</div>
+    <% @workouts.each do |workout| %>
+
+    <tr>
+    <td><%= workout.name  %></td>
+    <td><%= workout.category %></td>
+    <td><%= workout.duration %></td>
+    <td><%= workout.intensity %></td>
+    <td><%= link_to 'Details', workout_path(workout) %></td>
+    <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
+    <td><%= link_to 'Delete', workout_path(workout), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    
+    <% end %>
+</tbody>
+</table>
 
 <br></br>
 
