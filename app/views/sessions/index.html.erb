@@ -5,30 +5,24 @@
 <%= link_to 'Login', login_path %>
 
 <% else %>
-<div class="wrapper">
-<div class="card" style="width: 10rem;">
-  <div class="card-body">
-    <h3 class="card-title">Events</h3>
-    <p class="card-text">Add an event for which you'd like to start training!</p>
-    <%= link_to 'Add an Event', new_event_path %>   |   <%= link_to 'My Events', events_path %>
+<wrapper>
+  <div class="box">
+  <h3><%=link_to 'Events', events_path %></h3>
+  <p class="box-text">Track events for which you want to train</p>
+      </div>
   </div>
-</div>
 
-<div class="card" style="width: 10rem;">
-  <div class="card-body">
-    <h3 class="card-title">Workouts</h3>
-    <p class="card-text">Record a workout or get inspiration from other users.</p>
-    <%= link_to 'Record a Workout', new_workout_path %>   |   <%= link_to 'All Workouts', workouts_path %>
+  <div class="box">
+  <h3><%=link_to 'Workouts', workouts_path %></h3>
+  <p class="box-text">Add new workouts or choose from workouts added by other users</p>
+      </div>
   </div>
-</div>
 
-<div class="card" style="width: 10rem;">
-  <div class="card-body">
-    <h3 class="card-title">Trainings</h3>
-    <p class="card-text">Record a training to keep track of your progress.</p>
-    <%= link_to 'Record a Training', new_training_path %>   |   <%= link_to 'My Trainings', trainings_path %>
+  <div class="box">
+  <h3><%=link_to 'Trainings', trainings_path %></h3>
+  <p class="box-text">Record and track your trainings.</p>
+      </div>
   </div>
-</div>
+    </wrapper>
 
-</div>
 <% end %>

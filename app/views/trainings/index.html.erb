@@ -13,7 +13,7 @@
   <tbody>
     <% current_user.trainings.each do |training| %>
       <tr>
-        <td><li><%= training.date %></td>
+        <td><li><%= training.date.strftime("%b %e, %Y") %></td>
         <td><%= training.notes %>
         <% end %></td>
       </tr>
