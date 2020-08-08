@@ -1,0 +1,50 @@
+<h1>Record a New Training</h1>
+
+<%= render partial: "layouts/errors", locals: { object: @training } %>
+
+<%= form_for @training do |f| %>
+    <br>
+    <%= f.label :date %>
+    <%=f.date_field :date %>
+    <br>
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+    <br>
+    <%= f.label :event_id, "Event for Which You're Training" %>
+    <%= f.collection_select :event_id, current_user.events, :id, :title %>
+
+<br></br>
+
+    <% if @workout %>
+        <%= f.hidden_field :workout_id %>
+        <p><strong>Associated Workout:</strong> <%= @workout.name %></p>
+    <% else %>
+        <%= f.label :workout_id, "Select a Pre-existing Workout" %>
+        <%= f.collection_select :workout_id, Workout.all, :id, :name, include_blank: true %>
+
+<br></br>
+
+<h3>Or, Add a New Workout</h3>
+
+<%= f.fields_for :workout do |w| %>
+    <%= w.label :name %>
+    <%= w.text_field :name %>
+    <br>
+    <%= w.label :category %>
+    <%= w.select :category, options_for_select(["Circuit", "Run", "Cross Fit", "Bike", "Swim", "Other"]), include_blank: true %>
+    <br>
+    <%= w.label :duration %>
+    <%= w.text_field :duration %> In minutes
+    <br>
+    <%= w.label :intensity %>
+    <%= w.text_field :intensity %> On a scale of 1 to 5 (5 = most difficult)
+
+    <%= w.hidden_field :user_id, value: current_user.id %>
+    <% end %>
+    <% end %>
+
+<br></br>
+
+<%= f.submit('Add') %>   <%= link_to 'Cancel', trainings_path %>
+
+<% end %>

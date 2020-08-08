@@ -1,0 +1,36 @@
+<h1>All Workouts</h1>
+<p>Here are some popular workouts that you might try:</p>
+
+<br></br>
+
+<table>
+    <thead>
+        <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Duration</th>
+        <th>Intensity</th>
+        <th colspan="3"></th>
+        </tr>
+    </thead>
+
+    <% @workouts.each do |workout| %>
+
+    <tr>
+    <td><%= workout.name  %></td>
+    <td><%= workout.category %></td>
+    <td><%= workout.duration %></td>
+    <td><%= workout.intensity %></td>
+    <td><%= link_to 'Details', workout_path(workout) %></td>
+    <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
+    <td><%= link_to 'Delete', workout_path(workout), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    
+    <% end %>
+</tbody>
+</table>
+
+<br></br>
+
+<%= link_to 'Add a New Workout', new_workout_path %>
+

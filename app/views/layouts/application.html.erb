@@ -10,6 +10,20 @@
   </head>
 
   <body>
+    <div>
+      <% if logged_in? %>
+      <%= link_to "Home", root_path %>    |    
+      <%= link_to "Events", events_path %>    |    
+      <%= link_to "Workouts", workouts_path %>    |    
+      <%= link_to "Trainings", trainings_path %>    |    
+      <%= link_to "Logout", logout_path, method: 'delete' %>
+     <% else %>
+      <%= link_to "Sign Up", signup_path %>    |    
+      <%= link_to "Login", login_path %>
+      <% end %>
+    </div>
+
+    
     <%= yield %>
   </body>
 </html>

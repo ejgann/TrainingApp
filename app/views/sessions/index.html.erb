@@ -1,0 +1,28 @@
+<h1>Start training!</h1>
+
+<% if !logged_in? %>
+<%= link_to 'Signup', signup_path %>     |     
+<%= link_to 'Login', login_path %>
+
+<% else %>
+<wrapper>
+  <div class="box">
+  <h3><%=link_to 'Events', events_path %></h3>
+  <p class="box-text">Track events for which you want to train.</p>
+      </div>
+  </div>
+
+  <div class="box">
+  <h3><%=link_to 'Workouts', workouts_path %></h3>
+  <p class="box-text">Add new workouts or choose from workouts added by other users.</p>
+      </div>
+  </div>
+
+  <div class="box">
+  <h3><%=link_to 'Training Log', trainings_path %></h3>
+  <p class="box-text">Record and track your training sessions.</p>
+      </div>
+  </div>
+    </wrapper>
+
+<% end %>

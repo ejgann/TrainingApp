@@ -1,0 +1,24 @@
+<h1>Add a New Event</h1>
+
+<%= render partial: "layouts/errors", locals: { object: @event } %>
+
+<%= form_for(@event) do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<br>
+<br>
+<%= f.label :category %>
+<%= f.select :category, options_for_select(["Race", "Obstacle Course", "Triathlon", "Other"]), include_blank: true %>
+<br>
+<br>
+<%= f.label :description %>
+<%= f.text_field :description %>
+<br>
+<br>
+<%= f.label :length %>
+<%= f.text_field :length %>
+<br>
+<br>
+<%= f.submit('Add')%>   |   <%= link_to 'Cancel', events_path %>
+
+<% end %>

@@ -1,0 +1,28 @@
+<h1>My Recorded Trainings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Notes</th>
+      <th>Associated Workout</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% current_user.trainings.each do |training| %>
+      <tr>
+        <td><%= training.date.strftime("%b %e, %Y") %></td>
+        <td><%= training.notes %></td>
+        <td><%= training.workout.name %></td>
+        <td><%= link_to 'Details', training_path(training) %></td>
+        <td><%= link_to 'Delete', training_path(training), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+      </tr>
+  </tbody>
+</table>
+
+<br></br>
+
+<%= link_to 'Record a Training', new_training_path %>
